@@ -1,0 +1,19 @@
+id: org.texstudio.TeXstudio.Extension.ngrams.es
+build-extension: true
+runtime: org.texstudio.TeXstudio
+sdk: org.freedesktop.Sdk//22.08
+
+modules:
+  - name: download
+    buildsystem: simple
+    build-commands:
+      - cp -ar ./* ${FLATPAK_DEST}
+    sources:
+      - type: archive
+        url: https://languagetool.org/download/ngram-data/ngrams-es-20150915.zip
+        sha512: 83068a887896a0efcad2ed26c32e014720f4d1cf15f4bf0dec165c84a94c2c2cb885ee7c65e59126b0790dfade2eb7403039a7ec09626f18c7ebd1199f633703
+        x-checker-data:
+          type: html
+          url: https://languagetool.org/download/ngram-data/
+          version-pattern: ngrams-es-(\d{8}).zip
+          url-template: ngrams-es-$version.zip
